@@ -21,7 +21,8 @@ document.addEventListener("onreadystatechange", function(){
   if(document.readyState === "complete"){
     // remove the listener, to make sure it isn't fired in future
     document.removeEventListener("onreadystatechange", arguments.callee);
-    simulateClick($('button'));
+    var someLink = document.querySelector('button');
+    simulateClick(someLink);
   }
 });
 
@@ -30,7 +31,10 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '200',
     width: '300',
-    videoId: 'dQw4w9WgXcQ',
+    list: 'dQw4w9WgXcQ',
+    listtype: 'playlist',
+	  autoplay: true,
+    fs: true,
     events: {
       'onReady': onPlayerReady
     }
